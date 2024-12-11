@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body class="p-4">
+    <h1 class="text-xl font-bold">TODO LIST</h1>
+    <input
+      id="btn-add-task"
+      class="p-2 border border-black rounded"
+      type="text"
+      id="input"
+      placeholder="What you wanna do?"
+    />
+    <button
+      id="add"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      onclick="addTask()"
+    >
+      Add
+    </button>
+    <button
+      id="add"
+      class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+      onclick="deleteSelectedTask()"
+    >
+      Delete
+    </button>
+    <div>Status : <span id="task-status"></span></div>
+    <ul id="list"></ul>
+
+    <script>
+      getContent();
+
+      function loadTask() {
+        const content = localStorage.getItem("tasks");
+        if (content) {
+          return JSON.parse(content);
+        }
+        return [];
+      }
+
+      function getContent() {
+        const tasks = loadTask();
+        const list = document.getElementById("list");
+        list.innerHTML = "";
+        tasks.forEach((task, index) => {
+          const taskElement = document.createElement("li");
+          taskElement.innerHTML = `<input type="checkbox" onclick="handleTaskFinish(${index})" id="task-${index}" /> ${task}`;
+          list.appendChild(taskElement);
+        });
+        if (tasks.length === 0) {
+          document.getElementById(
+            "task-status"
+          ).innerText = `No tasks found! 😢`;
+        } else {
+          document.getElementById(
+            "task-status"
+          ).innerText = `Task loaded successfully! 🥳`;
+        }
+      }
+
+      function handleTaskFinish(task) {
+        const taskElement = document.getElementById(`task-${task}`);
+        if (taskElement.checked) {
+          taskElement.parentElement.style.textDecoration = "line-through";
+        } else {
+          taskElement.parentElement.style.textDecoration = "none";
+        }
+      }
+
+      function deleteSelectedTask() {
+        const tasks = loadTask();
+        const newTasks = tasks.filter((task, index) => {
+          const taskElement = document.getElementById(`task-${index}`);
+          return !taskElement.checked;
+        });
+        localStorage.setItem("tasks", JSON.stringify(newTasks));
+        getContent();
+        document.getElementById(
+          "task-status"
+        ).innerText = `Task deleted successfully! 🗑️`;
+        getContent();
+      }
+      function addTask() {
+        const input = document.getElementById("btn-add-task");
+        const list = document.getElementById("list");
+        const task = input.value;
+        const tasks = loadTask();
+        console.table(tasks);
+        tasks.push(task);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        getContent();
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- TABLE  -->
+    <!-- TABLE ROW - tr -->
+    <!-- TABLE HEADER - th -->
+    <!-- TABLE COLUMN - td -->
+    <h2>TABLE</h2>
+    <table border="1">
+      <caption>
+        Catatan Kasus
+      </caption>
+      <tr>
+        <th>No Induk</th>
+        <th>Nama</th>
+        <th>Tanggal</th>
+        <th>Kasus</th>
+      </tr>
+      <tr>
+        <td>001</td>
+        <td>Andi</td>
+        <td>12/12/2020</td>
+        <td>Mencuri sempak mamak</td>
+      </tr>
+      <tr>
+        <td>002</td>
+        <td>Budi</td>
+        <td>13/12/2020</td>
+        <td>Mencuri kentut mamak</td>
+      </tr>
+    </table>
+
+    <!-- FORM -->
+    <form>
+      <label for="">Username</label>
+      <input type="text" placeholder="USERNAME" required /> <br />
+      <label for="">Email</label>
+      <input type="email" placeholder="john@example.com" required /><br />
+      <label for="">Password</label>
+      <input
+        type="password"
+        minlength="8"
+        placeholder="PASSWORD"
+        required
+      /><br />
+      <label for="gender">Gender</label>
+      <select name="gener">
+        <option value="cowok">Cowok</option>
+        <option value="cewek">Cewek</option>
+        <option value="lainnya">Lainnya ☠️</option>
+      </select>
+      <br />
+      <button type="submit">Tambah Siswa</button>
+      <fieldset>
+        <legend>Pilih Berbatang atau Tidak?</legend>
+        <input type="radio" name="batang" /> Batang?
+        <input type="radio" name="batang" /> Ngga Ada Barang?
+      </fieldset>
+      <input type="checkbox" name="" id="" /> Setuju dengan syarat dan ketentuan
+      <!-- <input type="datetime" name="" id="">
+      <input type="date" name="" id="">
+      <input type="file" name="" id=""> -->
+    </form>
+  </body>
+</html>

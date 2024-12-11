@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-700">
+    <div class="flex h-screen items-center justify-center">
+      <div class="bg-gray-800 p-10 rounded-lg w-96 text-center">
+        <h1 class="text-2xl font-bold text-white">Login</h1>
+        <div class="space-y-4 mt-4">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            class="w-full p-2 rounded-lg bg-gray-700 text-white"
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            class="w-full p-2 rounded-lg bg-gray-700 text-white"
+          />
+          <button
+            class="w-full p-2 rounded-lg bg-blue-500 text-white"
+            onclick="handleLogin()"
+          >
+            Login
+          </button>
+        </div>
+        <div class="text-center text-white mt-4">
+          Don't have any account? <br /><a
+            href="register.html"
+            class="text-blue-500"
+            >Register Now</a
+          >
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
